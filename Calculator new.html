@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Calculator new</title>
+    <script>
+        window.onload = function () {
+            var $ = function (id) { return document.getElementById(id) };
+
+
+            $("plus").onclick = function () {
+                $("c").innerHTML = operation(a.value, b.value, plus.value);
+
+            }
+            $("minus").onclick = function () {
+                $("c").innerHTML = operation(a.value, b.value, minus.value);
+            }
+            $("multiply").onclick = function () {
+                $("c").innerHTML = operation(a.value, b.value, multiply.value);
+            }
+            $("share").onclick = function () {
+                $("c").innerHTML = operation(a.value, b.value, share.value);
+            }
+            function operation(a, b, oper) {
+                if (a == 0 || b == 0 && oper == "/") {
+                    return "На ноль делить нельзя";
+                }
+                else {
+                    switch (oper) {
+                        case "+": return parseInt(a) + parseInt(b); break;
+                        case "-": return parseInt(a) - parseInt(b); break;
+                        case "*": return parseInt(a) * parseInt(b); break;
+                        case "/": return parseInt(a) / parseInt(b); break;
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(center, #ffffff 0%, #cccccc 70%, #cccccc 100%) no-repeat;
+            background: -moz-radial-gradient(center, #FFF 0%, #CCC 70%, #CCC 100%) no-repeat;
+            background: -webkit-radial-gradient(center, #FFF 0%, #CCC 70%, #CCC 100%) no-repeat;
+        }
+
+        .calculator {
+            background: #6cacc5;
+            width: 250px;
+            height: 250px;
+            margin: 0 auto;
+            border-top-left-radius: 80% 20px;
+            border-top-right-radius: 80% 20px;
+            border-bottom-left-radius: 80% 20px;
+            border-bottom-right-radius: 80% 20px;
+            box-shadow: inset 5px 0 10px -5px #635e61, inset -5px 0 10px -5px #635e61, inset 0px -5px 10px -2px #635e61, 0 0 1px 2px #635e61, 0 10px 20px 0 #494547;
+            text-align: center;
+        }
+
+            .calculator p#title {
+                padding-top: 15px;
+                color: #7d777b;
+                font-family: 'Comic Sans MS';
+            }
+
+            .calculator input[type=text] {
+                background-color: #C7C7B0;
+                border: 1px solid #b2b292;
+                width: 80%;
+                font-size: 2em;
+                padding-right: 10px;
+                margin-bottom: 5px;
+                border-radius: 5px;
+            }
+
+            .calculator input[type=button] {
+                width: 30px;
+                height: 20px;
+                border: 1px solid #635e61;
+                background: #4B4657;
+                color: white;
+                font-size: 1.1em;
+                border-radius: 20px;
+                margin-left: 5px;
+                margin-right: 5px;
+                margin-bottom: 8px;
+                border-top-left-radius: 80% 2px;
+                border-top-right-radius: 80% 2px;
+                border-bottom-left-radius: 80% 10px;
+                border-bottom-right-radius: 80% 10px;
+            }
+
+            .calculator div {
+                background-color: #C7C7B0;
+                border: 1px solid #b2b292;
+                width: 80%;
+                font-size: 2em;
+                margin-left: 25px;
+                border-radius: 5px;
+            }
+    </style>
+
+</head>
+<body>
+    <div class="calculator">
+        <p id="title">Simple Calculator</p>
+        <input id="a" type="text" placeholder="число" />
+        <input id="b" type="text" placeholder="число" />
+
+        <input id="plus" type="button" value="+" />
+        <input id="minus" type="button" value="-" />
+        <input id="multiply" type="button" value="*" />
+        <input id="share" type="button" value="/" />
+        <div id="c" type="text" placeholder="число">результат</div>
+    </div>
+</body>
+</html>
